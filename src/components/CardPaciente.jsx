@@ -1,22 +1,27 @@
+//3- Desde CardPaciente.jsx
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
-const CardsPaciente = () => {
+const CardsPaciente = ({ paciente, borrarPaciente, nombrePaciente }) => {
   return (
     <Card className="my-3 px-0 shadow" style={{ width: "18rem" }}>
       <Card.Header>
-        <Card.Title>Mascota: Firulais</Card.Title>
-        <Card.Subtitle className="text-secondary">Dueño: Pepe</Card.Subtitle>
+        <Card.Title>Mascota: {paciente.nombre}</Card.Title>
+        <Card.Subtitle className="text-secondary">
+          Dueño: {paciente.nombreDuenio}
+        </Card.Subtitle>
       </Card.Header>
       <Card.Body>
         <div className="justify-content-between my-3">
-          <Card.Text>Fecha</Card.Text>
-          <Card.Text>Hora</Card.Text>
-          <Card.Text>Sintomas</Card.Text>
+          <Card.Text>Fecha: {paciente.fecha}</Card.Text>
+          <Card.Text>Hora: {paciente.hora}</Card.Text>
+          <Card.Text>Sintomas: {paciente.sintomas}</Card.Text>
         </div>
       </Card.Body>
       <Card.Footer className="text-end">
-        <Button variant="danger">Borrar</Button>
+        <Button variant="danger" onClick={() => borrarPaciente(nombrePaciente)}>
+          Borrar
+        </Button>
       </Card.Footer>
     </Card>
   );
